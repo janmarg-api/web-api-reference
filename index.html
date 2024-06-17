@@ -31,6 +31,8 @@
                 </ul>
             </div>
         </nav>
+
+        <!-- Scroll progression navbar -->
         <div
             class="progress fixed-top bg-body-secondary"
             role="progressbar"
@@ -47,10 +49,20 @@
             ></div>
         </div>
 
-        <!-- Picture -->
+        <!-- Background -->
         <div class="container-fluid" style="margin-top: 5%">
             <div class="row">
                 <img src="assets/images/bg-3.jpg" />
+            </div>
+        </div>
+
+        <!-- API status bar -->
+        <div class="container-fluid bg-body-secondary">
+            <div class="row ms-4 p-2 pt-4">
+                <h3>API status</h3>
+            </div>
+            <div class="row ms-4 p-2">
+                <p id="api-status-text">Checking</p>
             </div>
         </div>
 
@@ -60,5 +72,6 @@
             crossorigin="anonymous"
         ></script>
         <script src="assets/scripts/progress-bar.js"></script>
+        <script src="assets/scripts/api-status.js"></script>
     </body>
 </html>
