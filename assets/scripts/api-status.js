@@ -1,13 +1,21 @@
-const baseUrl = "https://ahmedabadbrts.org:8081";
+const baseUrl = "https://ahmedabadbrts.org:8081/";
 const apiStatusText = document.getElementById("api-status-text");
 
 var isApiFunctional = true;
 
+// List of all endpoints to check
 let endpoints = new Map();
+
 endpoints.set(`${baseUrl}/api/RouteTimeTable?Rows=100&Page=0`, {
   method: "GET",
   authentication: true,
 });
+
+endpoints.set(`${baseUrl}/api/FareMatrix/GetAllFare?serviceType=BRTS`, {
+  method: "GET",
+  authentication: true
+});
+
 
 // Obtain token
 function getToken() {
@@ -27,12 +35,16 @@ function getToken() {
   });
 }
 
+// Check if url is accessible, then modify html to indicate whether API is functioning
 function checkUrl(endpoint, options) {
   fetch(endpoint, options).then((response) => {
     if (response.ok) {
       apiStatusText.innerHTML = "Functional";
+      apiStatusText.style.color = "green";
     } else {
       apiStatusText.innerHTML = "Down";
+      apiStatusText.style.color = "red";
+
       isApiFunctional = false;
     }
   });
@@ -40,7 +52,6 @@ function checkUrl(endpoint, options) {
 
 // Iterate through all endpoints
 getToken().then((accessToken) => {
-  console.log(accessToken);
   for (const [endpoint, options] of endpoints) {
     if (!isApiFunctional) {
       break;

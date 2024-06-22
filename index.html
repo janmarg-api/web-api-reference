@@ -9,10 +9,31 @@
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
             crossorigin="anonymous"
         />
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            p,
+            a {
+                font-family: "Noto Sans";
+            }
+        </style>
     </head>
     <body>
         <!-- Navbar -->
-        <nav class="navbar fixed-top bg-body-tertiary navbar-expand-lg">
+        <nav class="navbar fixed-top bg-body-tertiary navbar-expand-sm">
             <div class="container-fluid">
                 <a class="navbar-brand">
                     <img src="assets/vector/JanmargAPI.svg" width="200" />
@@ -62,7 +83,35 @@
                 <h3>API status</h3>
             </div>
             <div class="row ms-4 p-2">
-                <p id="api-status-text">Checking</p>
+                <p id="api-status-text" style="font-weight: 600">Checking</p>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-4 my-3">
+                    <ul>
+                        <li>
+                            <a href="#">POST /token/</a>
+                        </li>
+                        <li>
+                            <a href="#">GET /RouteTimeTable?Rows=int&Page=int</a>
+                        </li>
+                        <li>
+                            <a href="#">GET /BusesOnRoute?routeCode=string&Rows=int&Page=int</a>
+                        </li>
+                        <li>
+                            <a href="#">GET /FareMatrix/GetAllFare?serviceType=BRTS</a>
+                        </li>
+                        <li>
+                            <a href="#">GET /StopsOnRoute?scheduleForRouteCode=int&Rows=int&Page=int</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-8 my-3 px-5">
+                    <div class="row">Endpoints</div>
+                    <div class="row">POST /token/</div>
+                </div>
             </div>
         </div>
 
