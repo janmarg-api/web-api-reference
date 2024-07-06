@@ -38,7 +38,7 @@ function getToken() {
 // Check if url is accessible, then modify html to indicate whether API is functioning
 function checkUrl(endpoint, options) {
   fetch(endpoint, options).then((response) => {
-    if (response.ok) {
+    if (response.ok && isApiFunctional) {
       apiStatusText.innerHTML = "Functional";
       apiStatusText.style.color = "green";
     } else {
