@@ -29,6 +29,20 @@
             a {
                 font-family: "Noto Sans";
             }
+
+            .post-icon {
+                background-color: #d4aa00;
+                border-radius: 5px;
+                color: white;
+                font-weight: 600;
+            }
+
+            .get-icon {
+                background-color: #008000;
+                border-radius: 5px;
+                color: white;
+                font-weight: 600;
+            }
         </style>
     </head>
     <body>
@@ -90,53 +104,125 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-4 my-3 py-3">
+                    <!-- Endpoint list -->
+
                     <h5 class="mx-2">Endpoints</h5>
                     <div class="container-fluid">
                         <div
-                            class="row bg-body-secondary border-top border-bottom p-2 my-3"
+                            class="row bg-body-secondary border-top border-bottom p-3 my-3 text-wrap"
                         >
-                            <p class="my-0">POST /token/</p>
+                            <div class="d-inline">
+                                <span class="post-icon p-1 px-2 mx-2"
+                                    >POST</span
+                                >
+                                <span class="bg-body-secondary">/token/</span>
+                            </div>
                         </div>
                         <div
-                            class="row bg-body-secondary border-top border-bottom p-2 my-3"
+                            class="row bg-body-secondary border-top border-bottom p-3 my-3 text-wrap"
                         >
-                            <p class="my-0">
-                                GET /RouteTimeTable?Rows=int&Page=int
-                            </p>
+                            <div class="d-inline">
+                                <span class="get-icon p-1 px-3 mx-2">GET</span>
+                                <span class="bg-body-secondary"
+                                    >/RouteTimeTable?Rows=int&Page=int</span
+                                >
+                            </div>
                         </div>
                         <div
-                            class="row bg-body-secondary border-top border-bottom p-2 my-3"
+                            class="row bg-body-secondary border-top border-bottom p-3 my-3 text-wrap"
                         >
-                            <p class="my-0">
-                                GET
-                                /BusesOnRoute?routeCode=string&Rows=int&Page=int
-                            </p>
+                            <div class="d-inline">
+                                <span class="get-icon p-1 px-3 mx-2">GET</span>
+                                <span
+                                    class="bg-body-secondary"
+                                    style="font-size: 0.8em"
+                                    >/BusesOnRoute?routeCode=string<wbr />&Rows=int<wbr />&Page=int</span
+                                >
+                            </div>
                         </div>
                         <div
-                            class="row bg-body-secondary border-top border-bottom p-2 my-3"
+                            class="row bg-body-secondary border-top border-bottom p-3 my-3 text-wrap"
                         >
-                            <p class="my-0">
-                                GET /FareMatrix/GetAllFare?serviceType=BRTS
-                            </p>
+                            <div class="d-inline">
+                                <span class="get-icon p-1 px-3 mx-2">GET</span>
+                                <span class="bg-body-secondary"
+                                    >/FareMatrix/GetAllFare?serviceType=BRTS</span
+                                >
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Endpoint documentation -->
                 <div class="col-8 my-4 px-5">
+                    <hr />
                     <div class="row">
-                        <h5>POST /token/</h5>
+                        <h5 id="nav-token-doc">POST /token/</h5>
                         <p>
                             Retrieve an OAuth 2.0 authentication token to make
                             further requests to the API
                         </p>
+                        <h6 class="my-3">Payload (application/form-data)</h6>
+                        <code
+                            >grant_type=password&username=WApiUser&password=ttttt</code
+                        >
+                        <h6 class="my-3">Response</h6>
+                        <code>
+                            <pre>
+    {
+        access_token: (your access token)
+        token_type: bearer
+        expires_in: 259199
+    }
+                            </pre>
+                        </code>
                     </div>
+                    <hr />
                     <div class="row">
-                        <h5>GET /RouteTimeTable?Rows=int&Page=int</h5>
+                        <h5 id="nav-routetimetable-doc">
+                            GET /RouteTimeTable?Rows=int&Page=int
+                        </h5>
                         <p>
                             Obtain a timetable for all BRTS routes in Ahmedabad
                         </p>
+                        <h6 class="my-3">Headers</h6>
+                        <code
+                            >authentication: (The access token retrieved through
+                            a request to the /token/ endpoint, prefixed with
+                            'bearer ')</code
+                        >
+                        <h6 class="my-3">Response</h6>
+                        <code>
+                            <pre>
+    {
+        Data: [
+            {
+                "routeId": 1,
+                "routeCode": "1D",
+                "customerRouteCode": "1D",
+                "route": "Maninagar - Ghuma Gam",
+                "startName": "Maninagar",
+                "endName": "Ghuma Gam",
+                "startStopCode": 57,
+                "endStopCode": 270,
+                "startTime": "06:10:00",
+                "endTime": "22:45:00",
+                "days": "1,2,3,4,5,6,7",
+                "linetype": "BRTS",
+                "Variant": "NORMAL"
+            },
+            {
+                ...
+            }
+        ]
+    }
+
+                            </pre>
+                        </code>
                     </div>
+                    <hr />
                     <div class="row">
-                        <h5>
+                        <h5 id="nav-busesonroute-doc">
                             GET /BusesOnRoute?routeCode=string&Rows=int&Page=int
                         </h5>
                         <p>
@@ -145,13 +231,93 @@
                             routeCode can be obtained by making a request to the
                             /RouteTimeTable/ endpoint
                         </p>
+                        <h6 class="my-3">Headers</h6>
+                        <code
+                            >authentication: (The access token retrieved through
+                            a request to the /token/ endpoint, prefixed with
+                            'bearer ')</code
+                        >
+                        <h6 class="my-3">Response</h6>
+                        <code>
+                            <pre>
+    {
+        "Data": [
+            {
+                "ScheduleForRouteId": int,
+                "schedulecode": string,
+                "scheduleForRouteCode": string,
+                "routeCode": string,
+                "routeName": string,
+                "routeDestination": string,
+                "routeVariant": "NORMAL",
+                "firstStopCode": int,
+                "lastStopCode": int,
+                "Shift": null,
+                "startTime": string,
+                "stopTime": string,
+                "runCode": string,
+                "tripSeqNumber": null,
+                "dutyCode": null,
+                "firstStopName": string,
+                "lastStopName": string,
+                "busNo": int
+            },
+            {
+                ...
+            }
+            ]
+    }
+                                                    </pre
+                            >
+                        </code>
                     </div>
+                    <hr />
                     <div class="row">
-                        <h5>GET /FareMatrix/GetAllFare?serviceType=BRTS</h5>
+                        <h5 id="nav-farematrix-doc">
+                            GET /FareMatrix/GetAllFare?serviceType=BRTS
+                        </h5>
+
                         <p>
                             Retrieve the fares for travelling between any two
                             stops in the BRTS network
                         </p>
+                        <h6 class="my-3">Headers</h6>
+                        <code
+                            >authentication: (The access token retrieved through
+                            a request to the /token/ endpoint, prefixed with
+                            'bearer ')</code
+                        >
+                        <h6 class="my-3">Response</h6>
+                        <code>
+                            <pre>
+    [
+        {
+            "From": string,
+            "Ajit Mill Char Rasta": null | string,
+            "Akhbarnagar": null | string,
+            "Ambli Gam": null | string,
+            "Andhjan Mandal": null | string,
+            "Anjali": null | string,
+            "Antariksh Colony": null | string,
+            "Arvind Mill": null | string,
+            "Ashok Mill": null | string,
+            "Ashok Vatika": null | string,
+            "Astodiya Chakala": null | string,
+            "Astodiya Darwaja": null | string,
+            "Bapu Nagar Approach": null | string,
+            "Bethak": null | string,
+            "Bhadaj Circle": null | string,
+            "Bhairavnath Road": null | string,
+            "Bhavsar Hostel": null | string,
+            "Bhavya Park": null | string,
+...
+        },
+        {
+            ...
+        }
+    ]
+                            </pre>
+                        </code>
                     </div>
                 </div>
             </div>
