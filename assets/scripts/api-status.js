@@ -13,9 +13,8 @@ endpoints.set(`${baseUrl}/api/RouteTimeTable?Rows=100&Page=0`, {
 
 endpoints.set(`${baseUrl}/api/FareMatrix/GetAllFare?serviceType=BRTS`, {
   method: "GET",
-  authentication: true
+  authentication: true,
 });
-
 
 // Obtain token
 function getToken() {
@@ -39,7 +38,7 @@ function getToken() {
 function checkUrl(endpoint, options) {
   fetch(endpoint, options).then((response) => {
     if (response.ok && isApiFunctional) {
-      apiStatusText.innerHTML = "Functional";
+      apiStatusText.innerHTML = `Functional (${endpoints.size} endpoints checked)`;
       apiStatusText.style.color = "green";
     } else {
       apiStatusText.innerHTML = "Down";
