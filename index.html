@@ -59,7 +59,11 @@
         <nav class="navbar fixed-top bg-body-tertiary navbar-expand-sm">
             <div class="container-fluid">
                 <a class="navbar-brand">
-                    <img src="assets/vector/JanmargAPI.svg" width="200" />
+                    <img
+                        src="assets/vector/JanmargForDevsLogo.svg"
+                        class="mx-3 my-2"
+                        width="150"
+                    />
                 </a>
 
                 <ul class="navbar-nav me-auto">
@@ -135,7 +139,7 @@
                             <div class="d-inline">
                                 <span class="get-icon p-1 px-3 mx-2">GET</span>
                                 <span style="font-weight: 600"
-                                    >/RouteTimeTable?Rows=int&Page=int</span
+                                    >/api/RouteTimeTable?Rows=int&Page=int</span
                                 >
                             </div>
                         </div>
@@ -146,7 +150,7 @@
                             <div class="d-inline">
                                 <span class="get-icon p-1 px-3 mx-2">GET</span>
                                 <span style="font-size: 0.8em; font-weight: 600"
-                                    >/BusesOnRoute?routeCode=string<wbr />&Rows=int<wbr />&Page=int</span
+                                    >/api/BusesOnRoute?routeCode=string<wbr />&Rows=int<wbr />&Pag...</span
                                 >
                             </div>
                         </div>
@@ -157,7 +161,7 @@
                             <div class="d-inline">
                                 <span class="get-icon p-1 px-3 mx-2">GET</span>
                                 <span style="font-weight: 600"
-                                    >/FareMatrix/GetAllFare?serviceType=BRTS</span
+                                    >/api/FareMatrix/GetAllFare?serviceType=BRTS</span
                                 >
                             </div>
                         </div>
@@ -193,7 +197,7 @@
                     <hr />
                     <div class="row">
                         <h5 id="nav-routetimetable-doc">
-                            GET /RouteTimeTable?Rows=int&Page=int
+                            GET /api/RouteTimeTable?Rows=int&Page=int
                         </h5>
                         <p>
                             Obtain a timetable for all BRTS routes in Ahmedabad
@@ -236,7 +240,8 @@
                     <hr />
                     <div class="row">
                         <h5 id="nav-busesonroute-doc">
-                            GET /BusesOnRoute?routeCode=string&Rows=int&Page=int
+                            GET
+                            /api/BusesOnRoute?routeCode=string&Rows=int&Page=int
                         </h5>
                         <p>
                             Retrieve information regarding bus arrival/departure
@@ -287,7 +292,7 @@
                     <hr />
                     <div class="row">
                         <h5 id="nav-farematrix-doc">
-                            GET /FareMatrix/GetAllFare?serviceType=BRTS
+                            GET /api/FareMatrix/GetAllFare?serviceType=BRTS
                         </h5>
 
                         <p>
