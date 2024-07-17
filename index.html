@@ -98,10 +98,10 @@
                     class="navbar-nav me-auto collapse navbar-collapse"
                 >
                     <li class="navbar-item">
-                        <a class="nav-link active">Endpoints</a>
+                        <a class="nav-link active" href="#">Endpoints</a>
                     </li>
                     <li class="navbar-item">
-                        <a class="nav-link">Examples</a>
+                        <a class="nav-link" href="#">Examples</a>
                     </li>
                 </ul>
             </div>
@@ -146,11 +146,12 @@
                 <div class="col-md-4 my-3 py-3">
                     <!-- Endpoint list -->
 
-                    <h5 class="mx-2">Endpoints</h5>
                     <div
                         id="endpoint-list"
-                        class="container-fluid clickable-children"
+                        class="container-fluid clickable-children sticky-top"
+                        style="top: 7em"
                     >
+                        <h5 class="mx-2">Endpoints</h5>
                         <div
                             class="row bg-body-secondary border-top border-bottom p-3 my-3 text-wrap"
                             data-ref="nav-token-doc"
@@ -199,7 +200,7 @@
                 </div>
 
                 <!-- Endpoint documentation -->
-                <div class="col-8 my-4 px-5">
+                <div class="col my-4 px-5">
                     <hr />
                     <div class="row">
                         <h5 id="nav-token-doc">POST /token/</h5>
@@ -271,7 +272,7 @@
                     <div class="row">
                         <h5 id="nav-busesonroute-doc">
                             GET
-                            /api/BusesOnRoute?routeCode=string&Rows=int&Page=int
+                            /api/BusesOnRoute?routeCode=string&<wbr\>Rows=int&<wbr\>Page=int
                         </h5>
                         <p>
                             Retrieve information regarding bus arrival/departure
