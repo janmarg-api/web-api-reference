@@ -19,6 +19,8 @@
             rel="stylesheet"
         />
 
+        <title>Endpoints | Janmarg API reference</title>
+
         <style>
             h1,
             h2,
@@ -71,7 +73,7 @@
         </script>
 
         <!-- Navbar -->
-        <nav class="navbar fixed-top bg-body-tertiary navbar-expand-sm">
+        <nav class="navbar fixed-top bg-body-tertiary navbar-expand-md">
             <div class="container-fluid">
                 <a class="navbar-brand">
                     <img
@@ -80,8 +82,21 @@
                         width="150"
                     />
                 </a>
-
-                <ul class="navbar-nav me-auto">
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navitems"
+                    aria-controls="navitems"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <ul
+                    id="navitems"
+                    class="navbar-nav me-auto collapse navbar-collapse"
+                >
                     <li class="navbar-item">
                         <a class="nav-link active">Endpoints</a>
                     </li>
@@ -112,7 +127,7 @@
         <!-- Background -->
         <div class="container-fluid" style="margin-top: 5%">
             <div class="row">
-                <img src="assets/images/bg-3.jpg" />
+                <img src="assets/images/bg-3.jpg" style="max-width: 100%" />
             </div>
         </div>
 
@@ -128,7 +143,7 @@
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-4 my-3 py-3">
+                <div class="col-md-4 my-3 py-3">
                     <!-- Endpoint list -->
 
                     <h5 class="mx-2">Endpoints</h5>
